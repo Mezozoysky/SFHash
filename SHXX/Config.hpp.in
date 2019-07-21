@@ -1,0 +1,12 @@
+#pragma once
+
+#define SHXX_VERSION_MAJOR @StringHashXX_VERSION_MAJOR@
+#define SHXX_VERSION_MINOR @StringHashXX_VERSION_MINOR@
+#define SHXX_VERSION_PATCH @StringHashXX_VERSION_PATCH@
+
+#define SHXX_BITS @StringHashXX_BITS@
+
+namespace shxx
+{
+} // namespace shxx
+
