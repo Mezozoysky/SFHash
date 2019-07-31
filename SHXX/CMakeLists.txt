@@ -68,8 +68,8 @@ option(SHXX_USE_BUNDLED_XXHASH "Use xxHash from submodule as subdirectory" ON)
 ###
 # xxHash
 if(SHXX_USE_BUNDLED_XXHASH)
-    set(BUILD_ENABLE_INLINE_API ON)
-    set(BUILD_XXHSUM OFF)
+    set(XXHASH_BUILD_ENABLE_INLINE_API ON)
+    set(XXHASH_BUILD_XXHSUM ON)
     add_subdirectory(${PROJECT_SOURCE_DIR}/../xxHash/cmake_unofficial/ ${PROJECT_SOURCE_DIR}/../xxHash/ EXCLUDE_FROM_ALL)
 else()
     find_package(xxHash 0.7.0
