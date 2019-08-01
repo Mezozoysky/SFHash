@@ -2,10 +2,18 @@ cmake_minimum_required(VERSION 2.8.12 FATAL_ERROR)
 
 if("${CMAKE_VERSION}" VERSION_LESS "3.0")
     project(SHXX CXX C)
+    set(SHXX_VERSION_MAJOR 0)
+    set(SHXX_VERSION_MINOR 1)
+    set(SHXX_VERSION_PATCH 0)
+    set(SHXX_VERSION "${SHXX_VERSION_MAJOR}.${SHXX_VERSION_MINOR}.${SHXX_VERSION_PATCH}")
 else()
     cmake_policy(SET CMP0028 NEW)
-    project(SHXX LANGUAGES CXX C)
+    cmake_policy(SET CMP0048 NEW)
+    project(SHXX
+        VERSION 0.1.0
+        LANGUAGES CXX C)
 endif()
+message(STATUS "SHXX version: ${SHXX_VERSION}")
 
 ###
 # Global project defines
@@ -34,11 +42,6 @@ else()
     message(FATAL_ERROR "Unsupported void pointer size: ${CMAKE_SIZEOF_VOID_P}")
 endif()
 
-set(SHXX_VERSION_MAJOR 0)
-set(SHXX_VERSION_MINOR 1)
-set(SHXX_VERSION_PATCH 0)
-set(SHXX_VERSION "${SHXX_VERSION_MAJOR}.${SHXX_VERSION_MINOR}.${SHXX_VERSION_PATCH}")
-message(STATUS "SHXX version: ${SHXX_VERSION}")
 set(SHXX_GEN_PATH "${CMAKE_BINARY_DIR}/generated-sources/")
 message(STATUS "SHXX generated sources directory: ${SHXX_GEN_PATH}")
 
@@ -58,7 +61,6 @@ install(
 ###
 option(BUILD_SHARED_LIBS "Build shared libs/use dynamic linking" OFF)
 
-option(SHXX_BUILD_ENGINE "Build Engine library" ON)
 option(SHXX_BUILD_UT "Build Unit tests" ON)
 option(SHXX_BUILD_EXAMPLES "Build examples" ON)
 option(SHXX_USE_BUNDLED_XXHASH "Use xxHash from submodule as subdirectory" ON)
