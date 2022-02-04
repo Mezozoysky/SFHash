@@ -18,3 +18,5 @@ Where possible options are:
 
 - `-DCMAKE_INSTALL_PREFIX=<path/to/install/to>`
 - `-DSHXX_USE_BUNDLED_XXHASH=<ON|OFF>` -- Set to ON to use xxHash from git submodule via add_subdirectory, set to OFF to use external xxHash; Default is ON.
+
+.
